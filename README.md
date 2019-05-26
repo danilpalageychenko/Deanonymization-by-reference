@@ -2,7 +2,13 @@
 
 Find webrtc, anonymizer, refer and ipv6
 
+
 In order for the definition of ipv6 to work, you need to configure on ipv6 hosting you can take (teredo / miredo) and in the file "index.php" in line 86 replace ipv6 address with your own.
+
+
+
+
+
 
 http://"ip" - The address on which the script is running, can be shortened by any abbreviation of links
 
