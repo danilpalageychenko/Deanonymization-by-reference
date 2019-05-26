@@ -10,9 +10,13 @@ In order for the definition of ipv6 to work, you need to configure on ipv6 hosti
 
 
 http://"ip" - The address on which the script is running, can be shortened by any abbreviation of links
+
 http://"ip"/log.txt - View report by IP addresses
+
 http://"ip"/clear.php - Clear Report
+
 If you need to redirect to some site, then (for example on facebook):
 http://"ip"/?redirect=http://facebook.com
+
 If you do not need to remove forwarding then:
 http://"ip"/?redirect 
