@@ -9,7 +9,6 @@ In order for the definition of ipv6 to work, you need to configure on ipv6 hosti
 
 
 
-
 http://"ip" - The address on which the script is running, can be shortened by any abbreviation of links
 
 http://"ip"/log.txt - View report by IP addresses
