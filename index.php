@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
+date_default_timezone_set("Europe/Kiev");
 if (count($_POST) > 0) {
 	$file = fopen("log.txt", "a");
 	fwrite($file, date('l jS \of F Y h:i:s A') . "\n");
